@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav_graph.xml"
+    app:startDestination="@id/selectionFragment">
+
+    <fragment
+        android:id="@+id/captureCameraFragment"
+        android:name="in.thedebug.camerafun.feature.CameraGallery.camera.CaptureCameraFragment"
+        android:label="fragment_capture_camera"
+        tools:layout="@layout/fragment_capture_camera">
+        <action
+            android:id="@+id/action_captureCameraFragment_to_previewFragment"
+            app:destination="@id/previewFragment" />
+        <argument
+            android:name="fileName"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/previewFragment"
+        android:name="in.thedebug.camerafun.feature.CameraGallery.camera.PreviewFragment"
+        android:label="fragment_preview"
+        tools:layout="@layout/fragment_preview">
+        <argument
+            android:name="fileName"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/pickGalleryFragment"
+        android:name="in.thedebug.camerafun.feature.CameraGallery.gallery.PickGalleryFragment"
+        android:label="PickGalleryFragment">
+        <action
+            android:id="@+id/action_pickGalleryFragment_to_previewFragment"
+            app:destination="@id/previewFragment" />
+        <argument
+            android:name="fileName"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_pickGalleryFragment_to_previewFragment2"
+            app:destination="@id/previewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectionFragment"
+        android:name="in.thedebug.camerafun.feature.selection.SelectionFragment"
+        android:label="SelectionFragment">
+        <action
+            android:id="@+id/action_selectionFragment_to_captureCameraFragment"
+            app:destination="@id/captureCameraFragment" />
+        <action
+            android:id="@+id/action_selectionFragment_to_pickGalleryFragment"
+            app:destination="@id/pickGalleryFragment" />
+    </fragment>
+</navigation>
